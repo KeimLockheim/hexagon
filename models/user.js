@@ -5,15 +5,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-  name: {
+  // changed name to mail
+  mail: {
     type: String,
     required: true,
     unique: true,
-    match: /^[a-z0-9]+$/i,
-    minlength: 3,
+    //match: /^[a-z0-9]+$/i,
+    //minlength: 3,
     maxlength: 25,
     validate: {
-      validator: validateNameAvailable,
+      validator: validateMailAvailable,
       message: '{VALUE} is already taken'
     }
   },
@@ -23,7 +24,7 @@ var userSchema = new Schema({
     validate: {
       validator: validatePassword
     }
-  },
+  }/*,
   firstname: {
     type: String,
     required: true,
@@ -48,7 +49,7 @@ var userSchema = new Schema({
         enum: [ 'citizen', 'staff' ]
       }
     ]
-  }
+  }*/
 });
 
 userSchema.virtual('password').set(setPassword);
@@ -58,11 +59,11 @@ userSchema.set('toJSON', {
   virtuals: true
 });
 
-userSchema.pre('save', ensureNameLowercase);
+userSchema.pre('save', ensureMailLowercase);
 
-userSchema.methods.hasRole = function(role) {
+/*userSchema.methods.hasRole = function(role) {
   return _.includes(this.roles, role);
-};
+};*/
 
 module.exports = mongoose.model('User', userSchema);
 
@@ -76,8 +77,9 @@ function setPassword(value) {
   }
 }
 
-function ensureNameLowercase(next) {
-  this.name = this.name.toLowerCase();
+//
+function ensureMailLowercase(next) {
+  this.mail = this.mail.toLowerCase();
   next();
 }
 
@@ -91,7 +93,7 @@ function validatePassword(value) {
   return true;
 }
 
-function validateNameAvailable(value) {
+function validateMailAvailable(value) {
   return this.constructor.findOne({
     _id: {
       $ne: this._id

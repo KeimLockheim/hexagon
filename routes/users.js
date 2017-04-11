@@ -17,7 +17,6 @@ router.post('/',
 
 router.get('/',
   auth.authenticate,
-  auth.authorize('staff'),
   retrieveAllUsers);
 
 router.get('/:id',
@@ -28,7 +27,6 @@ router.get('/:id',
 router.patch('/:id',
   auth.authenticate,
   utils.loaderById(User),
-  scopeNonStaffAccess,
   utils.requireJson,
   updateUser);
 
@@ -61,7 +59,7 @@ function updateUser(req, res, next) {
 function filterUsers(req) {
   let query = User.find();
 
-  query = utils.sort(query, req, 'name', [ 'name', 'firstname', 'lastname', 'phone' ]);
+  query = utils.sort(query, req, 'mail', [ 'mail' ]);
 
   return {
     filtered: query
@@ -69,11 +67,11 @@ function filterUsers(req) {
 }
 
 function parseUser(req) {
-  return _.pick(req.body, 'name', 'password', 'firstname', 'lastname', 'phone', 'roles');
+  return _.pick(req.body, 'mail', 'password');
 }
 
 function scopeNonStaffAccess(req, res, next) {
-  if (!req.authenticatedUser.hasRole('staff') && req.user.id != req.authenticatedUser.id) {
+  if (req.user.id != req.authenticatedUser.id) {
     return next(utils.notFoundError(User, req.user.id));
   }
 
