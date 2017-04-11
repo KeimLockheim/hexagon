@@ -1,46 +1,60 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+const BPromise = require('bluebird');
+const cors = require('cors');
+const express = require('express');
+const glob = require('glob');
+const logger = require('morgan');
+const mongoose = require('mongoose');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+const config = require('./config');
 
-var app = express();
+mongoose.connect(config.db);
+mongoose.Promise = BPromise;
+const db = mongoose.connection;
+db.on('error', function() {
+  throw new Error('Unable to connect to database at ' + config.db);
+});
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+if (process.env.DEBUG) {
+  mongoose.set('debug', true);
+}
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+const app = express();
+
+app.use(cors());
 app.use(logger('dev'));
+app.use('/images', express.static('images'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
+const routes = glob.sync(config.root + '/routes/*.js');
+routes.forEach(function(resource) {
+  require(resource)(app);
+});
 
-// catch 404 and forward to error handler
+app.get('/', function(req, res, next) {
+  res.type('text').send('Hexagon');
+});
+
+// 404 Not Found
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-// error handler
+// Error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  if (err.name == 'ValidationError') {
+    res
+      .status(err.status || 422)
+      .json(err.errors);
+  } else {
+    console.warn(err);
+    res
+      .status(err.status || 500)
+      .type('text')
+      .send(req.app.get('env') == 'development' ? err.stack : err.message);
+  }
 });
 
 module.exports = app;
