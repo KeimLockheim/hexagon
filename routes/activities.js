@@ -8,7 +8,7 @@ const Activity = require('../models/activity');
 const utils = require('../services/utils');
 
 module.exports = function(app) {
-  app.use('/api/activities', router);
+  app.use('/activities', router);
 };
 
 router.post('/',

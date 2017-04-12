@@ -5,6 +5,8 @@ const express = require('express');
 const glob = require('glob');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const users = require('./routes/users');
+const activities = require('./routes/activities');
 
 const config = require('./config');
 
@@ -25,6 +27,9 @@ app.use(cors());
 app.use(logger('dev'));
 app.use('/images', express.static('images'));
 app.use(bodyParser.json());
+
+app.use('/users', users);
+app.use('/activities', activities);
 
 const routes = glob.sync(config.root + '/routes/*.js');
 routes.forEach(function(resource) {

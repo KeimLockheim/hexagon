@@ -15,7 +15,7 @@ var activitySchema = new Schema({
     maxlength: 25
   },
   done: {
-    type: boolean,
+    type: Boolean,
     default: false
   }
 });
@@ -27,7 +27,7 @@ activitySchema.set('toJSON', {
   virtuals: true
 });
 
-activitySchema.pre('save');
+//activitySchema.pre('save');
 
 /*userSchema.methods.hasRole = function(role) {
   return _.includes(this.roles, role);

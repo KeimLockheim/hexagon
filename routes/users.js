@@ -8,7 +8,7 @@ const User = require('../models/user');
 const utils = require('../services/utils');
 
 module.exports = function(app) {
-  app.use('/api/users', router);
+  app.use('/users', router);
 };
 
 router.post('/',
