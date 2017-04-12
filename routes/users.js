@@ -7,6 +7,8 @@ const router = express.Router();
 const User = require('../models/user');
 const utils = require('../services/utils');
 
+// module.exports = router;
+
 module.exports = function(app) {
   app.use('/users', router);
 };
@@ -36,13 +38,13 @@ function createUser(req, res, next) {
   new User(parseUser(req)).save().then(savedUser => {
     res
       .status(201)
-      .set('Location', `${config.baseUrl}/api/users/${savedUser.id}`)
+      .set('Location', `${config.baseUrl}/users/${savedUser.id}`)
       .json(savedUser);
   }).catch(next);
 }
 
 function retrieveAllUsers(req, res, next) {
-  utils.paginate(filterUsers, '/api/users', req, res).then(users => res.json(users)).catch(next);
+  utils.paginate(filterUsers, '/users', req, res).then(users => res.json(users)).catch(next);
 }
 
 function retrieveOneUser(req, res, next) {
@@ -67,7 +69,7 @@ function filterUsers(req) {
 }
 
 function parseUser(req) {
-  return _.pick(req.body, 'mail', 'password');
+  return _.pick(req.body, 'mail', 'password', 'age', 'sex');
 }
 
 function scopeNonStaffAccess(req, res, next) {

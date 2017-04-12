@@ -28,8 +28,8 @@ app.use(logger('dev'));
 app.use('/images', express.static('images'));
 app.use(bodyParser.json());
 
-app.use('/users', users);
-app.use('/activities', activities);
+// app.use('/users', users);
+// app.use('/activities', activities);
 
 const routes = glob.sync(config.root + '/routes/*.js');
 routes.forEach(function(resource) {

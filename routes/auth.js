@@ -16,6 +16,8 @@ router.post('/', utils.requireJson, function(req, res, next) {
     return res.sendStatus(401);
   }
 
+  console.log();
+
   User.findOne({
     name: req.body.name.toLowerCase()
   }).then(user => {

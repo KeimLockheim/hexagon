@@ -26,7 +26,7 @@ var userSchema = new Schema({
     }
   },
   age: {
-    type: int,
+    type: Number,
     required: true
   },
   sex: {
