@@ -24,19 +24,17 @@ var userSchema = new Schema({
     validate: {
       validator: validatePassword
     }
-  }/*,
-  firstname: {
-    type: String,
-    required: true,
-    minlength: 2,
-    maxlength: 25
   },
-  lastname: {
-    type: String,
-    required: true,
-    minlength: 2,
-    maxlength: 25
+  age: {
+    type: int,
+    required: true
   },
+  sex: {
+    type: String,
+    enum : ['male','female'],
+    default: 'male'
+    },
+  /*,
   phone: {
     type: String,
     maxlength: 20
