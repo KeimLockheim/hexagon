@@ -12,14 +12,12 @@ module.exports = function(app) {
 };
 
 router.post('/', utils.requireJson, function(req, res, next) {
-  if (!_.isString(req.body.name) || !_.isString(req.body.password) || _.isEmpty(req.body.name.trim()) || _.isEmpty(req.body.password.trim())) {
+  if (!_.isString(req.body.mail) || !_.isString(req.body.password) || _.isEmpty(req.body.mail.trim()) || _.isEmpty(req.body.password.trim())) {
     return res.sendStatus(401);
   }
 
-  console.log();
-
   User.findOne({
-    name: req.body.name.toLowerCase()
+    mail: req.body.mail.toLowerCase()
   }).then(user => {
     if (!user) {
       return res.sendStatus(401);

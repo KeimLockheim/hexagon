@@ -35,13 +35,13 @@ function createActivity(req, res, next) {
   new Activity(parseActivity(req)).save().then(savedActivity => {
     res
       .status(201)
-      .set('Location', `${config.baseUrl}/api^/activities/${savedActivity.id}`)
+      .set('Location', `${config.baseUrl}/activities/${savedActivity.id}`)
       .json(savedActivity);
   }).catch(next);
 }
 
 function retrieveAllActivities(req, res, next) {
-  utils.paginate(filterActivities, '/api/activities', req, res).then(activities => res.json(activities)).catch(next);
+  utils.paginate(filterActivities, '/activities', req, res).then(activities => res.json(activities)).catch(next);
 }
 
 function retrieveOneActivity(req, res, next) {

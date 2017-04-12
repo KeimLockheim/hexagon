@@ -102,7 +102,7 @@ function validateMailAvailable(value) {
 
 function transformJson(doc, json, options) {
   json.id = json._id;
-  json.href = `/api/users/${json._id}`;
+  json.href = `/users/${json._id}`;
   delete json._id;
   delete json.__v;
   delete json.passwordHash;

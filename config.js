@@ -15,6 +15,7 @@ const defaultConfig = {
   bcryptRounds: 10,
   db: 'mongodb://localhost/hexagon',
   port: 3000,
+  secret: "letmein"
 };
 
 const fixedConfig = {
