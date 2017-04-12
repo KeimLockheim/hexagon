@@ -9,7 +9,7 @@ var userSchema = new Schema({
   mail: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
     //match: /^[a-z0-9]+$/i,
     //minlength: 3,
     maxlength: 25,
@@ -34,6 +34,22 @@ var userSchema = new Schema({
     enum : ['male','female'],
     default: 'male'
     },
+    codingDone: {
+      type: Boolean,
+      default: false
+    },
+    marketingComDone: {
+      type: Boolean,
+      default: false
+    },
+    businessManagementDone: {
+      type: Boolean,
+      default: false
+    },
+    multimediaDone: {
+      type: Boolean,
+      default: false
+    }
   /*,
   phone: {
     type: String,
@@ -101,7 +117,7 @@ function validateMailAvailable(value) {
 }
 
 function transformJson(doc, json, options) {
-  json.id = json._id;
+  //json.id = json._id;
   json.href = `/users/${json._id}`;
   delete json._id;
   delete json.__v;
