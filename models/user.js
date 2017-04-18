@@ -9,7 +9,7 @@ var userSchema = new Schema({
   mail: {
     type: String,
     required: true,
-    unique: false,
+    unique: true,
     //match: /^[a-z0-9]+$/i,
     //minlength: 3,
     maxlength: 25,
