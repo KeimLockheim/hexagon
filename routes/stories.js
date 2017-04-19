@@ -26,6 +26,10 @@ router.patch('/:id',
   utils.requireJson,
   updateStory);
 
+router.delete('/:id',
+  utils.loaderById(Story),
+  deleteOneStory);
+
 function createStory(req, res, next) {
   new Story(parseStory(req)).save().then(savedStory => {
     res
@@ -48,6 +52,16 @@ function updateStory(req, res, next) {
   req.story.save().then(savedStory => {
     res.json(savedStory);
   }).catch(next);
+}
+
+function deleteOneStory(req, res, next) {
+  req.story.remove(function(err) {
+    if (err) {
+      return next(err);
+    }
+
+    res.sendStatus(204);
+  });
 }
 
 function filterStories(req) {

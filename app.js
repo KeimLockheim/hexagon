@@ -26,7 +26,9 @@ const app = express();
 app.use(cors());
 app.use(logger('dev'));
 app.use('/images', express.static('images'));
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 // app.use('/users', users);
 // app.use('/activities', activities);

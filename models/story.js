@@ -145,7 +145,7 @@ var storySchema = new Schema({
             "Fields": {
                 "Actor": {
                     type: String
-                }
+                },
                 "Conversant": {
                     type: String
                 },
