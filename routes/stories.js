@@ -67,7 +67,7 @@ function deleteOneStory(req, res, next) {
 function filterStories(req) {
   let query = Story.find();
 
-  query = utils.sort(query, req, 'name', [ 'name' ]);
+  query = utils.sort(query, req, 'Description', [ 'Description' ]);
 
   return {
     filtered: query
@@ -75,5 +75,14 @@ function filterStories(req) {
 }
 
 function parseStory(req) {
-  return _.pick(req.body, 'name', 'done');
+  return _.pick(req.body, 'Language', 'Assets', 'Actors', 'Fields', 'Age',
+  'Description', 'Gender', 'IsPlayer', 'Name', 'Pictures', 'ID',
+  'Conversations', 'DialogNodes', 'ConditionPriority', 'ConditionsString',
+  'ConversationID', 'DelaySimStatus', 'FalseConditionAction', 'Actor',
+  'Animation Files', 'Audio Files', 'Conversant', 'Dialogue Text', 'Menu Text',
+  'Parenthetical', 'Title', 'Video File', 'Communication', 'Marketing',
+  'Business', 'Programmation', 'Multimédia', 'Management', 'Coût temps',
+  'Coût argent', 'IsGroup', 'IsRoot', 'NodeColor', 'OutgoingLinks',
+  'DestinationConvoID', 'DestinationDialogID', 'Filename', 'OriginConvoID',
+  'OriginDialogID', 'UserScript', 'Author', 'Version');
 }

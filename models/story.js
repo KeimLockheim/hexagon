@@ -4,7 +4,11 @@ const config = require('../config');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-var storySchema = new Schema({
+const storySchema = new Schema({
+    "Language": {
+        type: String,
+        maxlength: 20
+    },
     "Assets": {
         "Actors": [{
             "Fields": {
@@ -32,7 +36,7 @@ var storySchema = new Schema({
                 unique: true
             }
         }],
-        "Conversations": {
+        "Conversations": [{
             "DialogNodes": [{
                 "ConditionPriority": {
                     type: Number
@@ -166,15 +170,12 @@ var storySchema = new Schema({
             "NodeColor": {
                 type: Number
             }
-        }
+        }]
     },
     "Author": {
         "type": String
     },
     "Description": {
-        "type": String
-    },
-    "Language": {
         "type": String
     },
     "Title": {
@@ -196,8 +197,7 @@ storySchema.set('toJSON', {
 module.exports = mongoose.model('Story', storySchema);
 
 function transformJson(doc, json, options) {
-  json.href = `/users/${json._id}`;
+  json.href = `/stories/${json._id}`;
   delete json._id;
   delete json.__v;
-  delete json.passwordHash;
 }
