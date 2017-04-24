@@ -66,5 +66,5 @@ function filterQuestions(req) {
 }
 
 function parseQuestion(req) {
-  return _.pick(req.body, 'question','help' ,'response');
+  return _.pick(req.body, 'question','help' ,'response', 'interest');
 }

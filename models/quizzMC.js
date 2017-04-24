@@ -21,6 +21,10 @@ var quizzMCSchema = new Schema({
   response: {
     type: String,
     maxlength: 20
+  },
+  interest: {
+    type: String,
+    maxlength: 20
   }/*
   roles: {
     required: true,
