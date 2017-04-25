@@ -14,7 +14,7 @@ const envConfig = {
 const defaultConfig = {
   bcryptRounds: 10,
   db: 'mongodb://localhost/hexagon',
-  port: 3000,
+  port: 3005,
   secret: "letmein"
 };
 
