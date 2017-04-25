@@ -66,5 +66,5 @@ function filterProfils(req) {
 }
 
 function parseProfil(req) {
-  return _.pick(req.body, 'title', 'description');
+  return _.pick(req.body, 'title', 'description', 'statNumber');
 }

@@ -18,6 +18,11 @@ var profilSchema = new Schema({
     type: String,
     required: true,
     maxlength: 200
+  },
+  statNumber: {
+    type: Number,
+    required: false,
+    default: 0
   }
   /*,
   phone: {
