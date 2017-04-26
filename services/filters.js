@@ -1,3 +1,4 @@
+"use strict";
 const _ = require('lodash');
 
 exports.equalsOrIn = function(query, property, valueOrArray) {

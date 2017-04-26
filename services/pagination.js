@@ -1,3 +1,4 @@
+"use strict";
 const config = require('../config');
 const formatLinkHeader = require('format-link-header');
 
