@@ -1,6 +1,7 @@
 const _ = require('lodash');
 //const bcrypt = require('bcrypt');
 const config = require('../config');
+"use strict";
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

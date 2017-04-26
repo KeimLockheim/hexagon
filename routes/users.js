@@ -1,3 +1,4 @@
+"use strict";
 const _ = require('lodash');
 const auth = require('../services/auth');
 const BPromise = require('bluebird');

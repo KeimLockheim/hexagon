@@ -1,3 +1,4 @@
+"use strict";
 const bodyParser = require('body-parser');
 const BPromise = require('bluebird');
 const cors = require('cors');

@@ -35,3 +35,5 @@ if (!config.port) {
 config.baseUrl = config.baseUrl || `http://localhost:${config.port}`;
 
 module.exports = config;
+
+// Résumé du TB, Besoin de la Vaudoise, interets personnels: 

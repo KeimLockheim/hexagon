@@ -1,3 +1,4 @@
+"use strict";
 const _ = require('lodash');
 //const bcrypt = require('bcrypt');
 const config = require('../config');
