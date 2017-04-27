@@ -35,22 +35,22 @@ var userSchema = new Schema({
     enum : ['male','female'],
     default: 'male'
     },
-    codingDone: {
-      type: Boolean,
-      default: false
-    },
-    marketingComDone: {
-      type: Boolean,
-      default: false
-    },
-    businessManagementDone: {
-      type: Boolean,
-      default: false
-    },
-    multimediaDone: {
-      type: Boolean,
-      default: false
-    }
+  codingDone: {
+    type: Boolean,
+    default: false
+  },
+  marketingComDone: {
+    type: Boolean,
+    default: false
+  },
+  businessManagementDone: {
+    type: Boolean,
+    default: false
+  },
+  multimediaDone: {
+    type: Boolean,
+    default: false
+  }
   /*,
   phone: {
     type: String,

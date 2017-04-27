@@ -8,8 +8,10 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const users = require('./routes/users');
 const activities = require('./routes/activities');
+const images = require('./routes/imagefile');
 
 const config = require('./config');
+
 
 mongoose.connect(config.db);
 mongoose.Promise = BPromise;
@@ -24,9 +26,12 @@ if (process.env.DEBUG) {
 
 const app = express();
 
+// Pour pouvoir afficher le fichier pour ajouter des images
+app.set('view engine','ejs');
+
 app.use(cors());
 app.use(logger('dev'));
-app.use('/images', express.static('images'));
+app.use(express.static('uploads'));
 
 // La limite à 50mb permet d'upload le fichier story json
 app.use(bodyParser.json({limit: '50mb'}));
@@ -43,6 +48,39 @@ routes.forEach(function(resource) {
 app.get('/', function(req, res, next) {
   res.type('text').send('Hexagon');
 });
+
+// For posting and getting the images diplayed in the app
+
+// To get all the images/files stored in MongoDB
+app.get('/images', function(req, res) {
+//calling the function from index.js class using routes object..
+  images.getImages(function(err, genres) {
+    if (err) {
+      throw err;
+    }
+    res.json(genres);
+  });
+});
+
+// URL : http://localhost:3000/images/(give you collectionID)
+// To get the single image/File using id from the MongoDB
+app.get('/images/:id', function(req, res) {
+ 
+//calling the function from index.js class using routes object..
+  images.getImageById(req.params.id, function(err, genres) {
+    if (err) {
+      throw err;
+    }
+    //console.log(genres);
+  //res.download(genres.path);
+  var path = genres.path;
+
+  //res.send('<img src ="' + genres.path + '">');
+  //res.attachment(genres.path);
+  res.send("http://localhost:3005/"+genres.originalname);
+  });
+});
+
 
 // 404 Not Found
 app.use(function(req, res, next) {
