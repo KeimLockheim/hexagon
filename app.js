@@ -77,7 +77,7 @@ app.get('/images/:id', function(req, res) {
 
   //res.send('<img src ="' + genres.path + '">');
   //res.attachment(genres.path);
-  res.send("http://hexagon-api-dev.comem.ch/"+genres.originalname);
+  res.send(genres.originalname);
   });
 });
 
