@@ -70,7 +70,7 @@ function filterUsers(req) {
 }
 
 function parseUser(req) {
-  return _.pick(req.body, 'mail', 'password', 'age', 'sex');
+  return _.pick(req.body, 'mail', 'password', 'age', 'sex', 'codingDone', 'marketingComDone', 'businessManagementDone','multimediaDone');
 }
 
 function scopeNonStaffAccess(req, res, next) {
