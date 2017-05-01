@@ -77,7 +77,7 @@ function filterStories(req) {
 
 function parseStory(req) {
   return _.pick(req.body, 'Language', 'Assets', 'Actors', 'Fields', 'Age',
-  'Description', 'Gender', 'IsPlayer', 'Name', 'Pictures', 'ID',
+  'Description', 'Gender', 'IsPlayer', 'Name', 'Picture', 'ID',
   'Conversations', 'DialogNodes', 'ConditionPriority', 'ConditionsString',
   'ConversationID', 'DelaySimStatus', 'FalseConditionAction', 'Actor',
   'Animation Files', 'Audio Files', 'Conversant', 'Dialogue Text', 'Menu Text',
