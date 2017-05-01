@@ -79,7 +79,7 @@ const storySchema = new Schema({
                     "Parenthetical": {
                         type: String
                     },
-                    "Pictures": {
+                    "Picture": {
                         type: String
                     },
                     "Title": {
@@ -110,6 +110,9 @@ const storySchema = new Schema({
                         type: String
                     },
                     "Coût argent": {
+                        type: String
+                    },
+                    "estQuestion": {
                         type: String
                     }
                 },
