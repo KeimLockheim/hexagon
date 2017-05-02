@@ -49,6 +49,7 @@ function retrieveOneProfil(req, res, next) {
   res.json(req.profil);
 }
 
+
 function updateProfil(req, res, next) {
   _.extend(req.profil, parseProfil(req));
   req.profil.save().then(savedProfil => {
@@ -59,7 +60,7 @@ function updateProfil(req, res, next) {
 function filterProfils(req) {
   let query = Profil.find();
 
-  query = utils.sort(query, req, 'title', [ 'title' ]);
+  query = utils.sort(query, req, 'business', [ 'business' ]);
 
   return {
     filtered: query
@@ -67,5 +68,5 @@ function filterProfils(req) {
 }
 
 function parseProfil(req) {
-  return _.pick(req.body, 'title', 'description', 'statNumber');
+  return _.pick(req.body, 'business', 'communication', 'management','marketing','multimedia', 'programmation');
 }

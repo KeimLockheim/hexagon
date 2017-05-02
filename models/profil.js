@@ -7,24 +7,25 @@ const Schema = mongoose.Schema;
 
 var profilSchema = new Schema({
   // changed name to mail
-  title: {
-    type: String,
-    required: true,
-    unique: true,
-    //match: /^[a-z0-9]+$/i,
-    //minlength: 3,
-    maxlength: 25
+  business: {
+    type: Number
   },
-  description: {
-    type: String,
-    required: true,
-    maxlength: 200
+  communication: {
+    type: Number
   },
-  statNumber: {
-    type: Number,
-    required: false,
-    default: 0
+  management: {
+    type: Number
+  },
+  marketing: {
+    type: Number
+  },
+  multimedia: {
+    type: Number
+  },
+  programmation: {
+    type: Number
   }
+
   /*,
   phone: {
     type: String,

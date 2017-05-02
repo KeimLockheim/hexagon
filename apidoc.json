@@ -1,0 +1,7 @@
+{
+  "name": "API Hexagon",
+  "version": "1.0.0",
+  "description": "API Hexagon permettant d'avoir une persistence des donnes",
+  "title": "hexagon",
+  "url" : "http://hexagon-api-dev.comem.ch"
+}
