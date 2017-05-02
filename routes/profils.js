@@ -48,7 +48,7 @@ router.get('/',
   retrieveAllProfils);
 
 /**
- * @api {get} /profils/:id Retrieve all profils
+ * @api {get} /profils/:id Retrieve a profil matching with id
  * @apiName retrieveOneProfil
  * @apiGroup Profil
  *

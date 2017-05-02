@@ -12,30 +12,67 @@ module.exports = function(app) {
 };
 
 /**
- * @api {post} /stories Create a new statistic/ranking
- * @apiName createStat
- * @apiGroup Stat
+ * @api {post} /stories Create a new story
+ * @apiName createStory
+ * @apiGroup Story
  *
- * @apiSuccess {String} name Name of the ranking
- * @apiSuccess {Number} stars Number of stars for this rank
- * @apiSuccess {Number} numberOf Number of times this rank was called
+ * @apiSuccess {DATA} story One big story
  */
 
 router.post('/',
   utils.requireJson,
   createStory);
 
+/**
+ * @api {get} /stories Get all stories
+ * @apiName retrieveAllStories
+ * @apiGroup Story
+ *
+ * @apiSuccess {DATA} story One big story
+ */
+
 router.get('/',
   retrieveAllStories);
+
+/**
+ * @api {get} /stories/:id Get a story by id
+ * @apiName retrieveOneStory
+ * @apiGroup Story
+ *
+ * @apiParam {Number} id Unique identifier of the story
+ *
+ * @apiSuccess {DATA} story One big story
+ */
 
 router.get('/:id',
   utils.loaderById(Story),
   retrieveOneStory);
 
+/**
+ * @api {patch} /stories/:id Patch a story by id
+ * @apiName updateStory
+ * @apiGroup Story
+ *
+ * @apiParam {Number} id Unique identifier of the story
+ *
+ * @apiSuccess {DATA} story One big story
+ */
+
+
 router.patch('/:id',
   utils.loaderById(Story),
   utils.requireJson,
   updateStory);
+
+/**
+ * @api {delete} /stories/:id Delete a story by id
+ * @apiName deleteOneStory
+ * @apiGroup Story
+ *
+ * @apiParam {Number} id Unique identifier of the story
+ *
+ * @apiSuccess {DATA} story One big story
+ */
 
 router.delete('/:id',
   utils.loaderById(Story),

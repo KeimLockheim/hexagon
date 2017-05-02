@@ -7,7 +7,6 @@ const glob = require('glob');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const users = require('./routes/users');
-const activities = require('./routes/activities');
 const images = require('./routes/imagefile');
 
 const config = require('./config');

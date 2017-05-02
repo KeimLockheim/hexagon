@@ -1,7 +1,7 @@
 {
   "name": "API Hexagon",
   "version": "1.0.0",
-  "description": "API Hexagon permettant d'avoir une persistence des donnes",
+  "description": "API Hexagon permettant d'avoir une persistence des donnees utilisees dans l'application Arbitrium",
   "title": "hexagon",
   "url" : "http://hexagon-api-dev.comem.ch"
 }
