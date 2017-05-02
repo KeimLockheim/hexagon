@@ -14,26 +14,80 @@ module.exports = function(app) {
   app.use('/users', router);
 };
 
+/**
+ * @api {post} /users Create a new user
+ * @apiName createUser
+ * @apiGroup User
+ *
+ * @apiSuccess {String} mail Mail of the user
+ * @apiSuccess {String} password Password of the user
+ * @apiSuccess {Number} age Age of the user
+ * @apiSuccess {ENUM} sex Sex of the user
+ * @apiSuccess {String} href Link for the user
+ * @apiSuccess {Number} id of the user
+ */
+
 router.post('/',
   utils.requireJson,
   createUser);
 
+/**
+ * @api {get} /users Retrieve all users
+ * @apiName retrieveAllUsers
+ * @apiGroup User
+ *
+ * @apiSuccess {String} mail Mail of the user
+ * @apiSuccess {String} password Password of the user
+ * @apiSuccess {Number} age Age of the user
+ * @apiSuccess {ENUM} sex Sex of the user
+ * @apiSuccess {String} href Link for the user
+ * @apiSuccess {Number} id of the user
+ */
+
 router.get('/',
   auth.authenticate,
   retrieveAllUsers);
+
+/**
+ * @api {get} /users/:id Retrieve a user that fit with the id param
+ * @apiName retrieveOneUser
+ * @apiGroup User
+ *
+ * @apiParam {:id} id Unique identifier of the user
+ *
+ * @apiSuccess {String} mail Mail of the user
+ * @apiSuccess {String} password Password of the user
+ * @apiSuccess {Number} age Age of the user
+ * @apiSuccess {ENUM} sex Sex of the user
+ * @apiSuccess {String} href Link for the user
+ * @apiSuccess {Number} id of the user
+ */
 
 router.get('/:id',
   auth.authenticate,
   utils.loaderById(User),
   retrieveOneUser);
 
+/**
+ * @api {patch} /users/:id Patch a user that fit with the id param
+ * @apiName retrieveOneUser
+ * @apiGroup User
+ *
+ * @apiParam {:id} id Unique identifier of the user
+ *
+ * @apiSuccess {String} mail Mail of the user
+ * @apiSuccess {String} password Password of the user
+ * @apiSuccess {Number} age Age of the user
+ * @apiSuccess {ENUM} sex Sex of the user
+ * @apiSuccess {String} href Link for the user
+ * @apiSuccess {Number} id of the user
+ */
+
 router.patch('/:id',
   auth.authenticate,
   utils.loaderById(User),
   utils.requireJson,
   updateUser);
-
-// TODO: DELETE /api/users/:id
 
 function createUser(req, res, next) {
   new User(parseUser(req)).save().then(savedUser => {

@@ -11,6 +11,16 @@ module.exports = function(app) {
   app.use('/stories', router);
 };
 
+/**
+ * @api {post} /stories Create a new statistic/ranking
+ * @apiName createStat
+ * @apiGroup Stat
+ *
+ * @apiSuccess {String} name Name of the ranking
+ * @apiSuccess {Number} stars Number of stars for this rank
+ * @apiSuccess {Number} numberOf Number of times this rank was called
+ */
+
 router.post('/',
   utils.requireJson,
   createStory);

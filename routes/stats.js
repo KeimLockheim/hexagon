@@ -14,16 +14,61 @@ module.exports = function(app) {
   app.use('/stats', router);
 };
 
+/**
+ * @api {post} /stats Create a new statistic/ranking
+ * @apiName createStat
+ * @apiGroup Stat
+ *
+ * @apiSuccess {String} name Name of the ranking
+ * @apiSuccess {Number} stars Number of stars for this rank
+ * @apiSuccess {Number} numberOf Number of times this rank was called
+ */
+
 router.post('/',
   utils.requireJson,
   createStat);
 
+/**
+ * @api {get} /stats Get all the statistics/rankings
+ * @apiName retrieveAllStats
+ * @apiGroup Stat
+ *
+ * @apiSuccess {String} name Name of the ranking
+ * @apiSuccess {Number} stars Number of stars for this rank
+ * @apiSuccess {Number} numberOf Number of times this rank was called
+ */
+
 router.get('/',
   retrieveAllStats);
+
+/**
+ * @api {get} /stats/:id Get one statistic/ranking by id
+ * @apiName retrieveOneStat
+ * @apiGroup Stat
+ *
+ * @apiParam {Number} id Unique identifier of the stat
+ *
+ * @apiSuccess {String} name Name of the ranking
+ * @apiSuccess {Number} stars Number of stars for this rank
+ * @apiSuccess {Number} numberOf Number of times this rank was called
+ */
 
 router.get('/:id',
   utils.loaderById(Stat),
   retrieveOneStat);
+
+/**
+ * @api {patch} /stats/:id Patch one statistic/ranking by id
+ * @apiName updateStat
+ * @apiGroup Stat
+ *
+ * @apiParam {Number} id Unique identifier of the stat
+ *
+ * @apiSuccess {String} name Name of the ranking
+ * @apiSuccess {Number} stars Number of stars for this rank
+ * @apiSuccess {Number} numberOf Number of times this rank was called
+ */
+
 
 router.patch('/:id',
   utils.loaderById(Stat),
