@@ -21,6 +21,9 @@ const storySchema = new Schema({
             "default":false
           },
           "reponseD":{
+            "jumpTo":{
+              type:String
+            },
             "titre":{
               type:String
             },
@@ -50,6 +53,9 @@ const storySchema = new Schema({
             }
           },
           "reponseG":{
+            "jumpTo":{
+              type:String
+            },
             "titre":{
               type:String
             },
