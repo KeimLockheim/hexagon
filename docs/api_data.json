@@ -1,0 +1,883 @@
+[
+  {
+    "type": "post",
+    "url": "/images",
+    "title": "Create a new entrie for an image and store the image on the server",
+    "name": "hexagon",
+    "group": "Image",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id of the image on the db</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "path",
+            "description": "<p>Path where the image was stored</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "originalname",
+            "description": "<p>Original name's image</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/imagefile.js",
+    "groupTitle": "Image"
+  },
+  {
+    "type": "post",
+    "url": "/profils",
+    "title": "Create a new profil",
+    "name": "createProfil",
+    "group": "Profil",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "business",
+            "description": "<p>Business points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "communication",
+            "description": "<p>Communication points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "management",
+            "description": "<p>Management points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "marketing",
+            "description": "<p>Marketing points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "multimedia",
+            "description": "<p>Multimedia points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "Programmation",
+            "description": "<p>programmation points of an anonym user</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/profils.js",
+    "groupTitle": "Profil"
+  },
+  {
+    "type": "get",
+    "url": "/profils",
+    "title": "Retrieve all profils",
+    "name": "retrieveAllProfils",
+    "group": "Profil",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "business",
+            "description": "<p>Business points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "communication",
+            "description": "<p>Communication points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "management",
+            "description": "<p>Management points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "marketing",
+            "description": "<p>Marketing points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "multimedia",
+            "description": "<p>Multimedia points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "Programmation",
+            "description": "<p>programmation points of an anonym user</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/profils.js",
+    "groupTitle": "Profil"
+  },
+  {
+    "type": "get",
+    "url": "/profils/:id",
+    "title": "Retrieve a profil matching with id",
+    "name": "retrieveOneProfil",
+    "group": "Profil",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": ":id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique identifier of the profil</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "business",
+            "description": "<p>Business points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "communication",
+            "description": "<p>Communication points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "management",
+            "description": "<p>Management points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "marketing",
+            "description": "<p>Marketing points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "multimedia",
+            "description": "<p>Multimedia points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "Programmation",
+            "description": "<p>programmation points of an anonym user</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/profils.js",
+    "groupTitle": "Profil"
+  },
+  {
+    "type": "patch",
+    "url": "/profils/:id",
+    "title": "Patch a profil matching with id",
+    "name": "updateProfil",
+    "group": "Profil",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": ":id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique identifier of the profil</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "business",
+            "description": "<p>Business points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "communication",
+            "description": "<p>Communication points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "management",
+            "description": "<p>Management points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "marketing",
+            "description": "<p>Marketing points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "multimedia",
+            "description": "<p>Multimedia points of an anonym user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "Programmation",
+            "description": "<p>programmation points of an anonym user</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/profils.js",
+    "groupTitle": "Profil"
+  },
+  {
+    "type": "post",
+    "url": "/stats",
+    "title": "Create a new statistic/ranking",
+    "name": "createStat",
+    "group": "Stat",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Name of the ranking</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "stars",
+            "description": "<p>Number of stars for this rank</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "numberOf",
+            "description": "<p>Number of times this rank was called</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/stats.js",
+    "groupTitle": "Stat"
+  },
+  {
+    "type": "get",
+    "url": "/stats",
+    "title": "Get all the statistics/rankings",
+    "name": "retrieveAllStats",
+    "group": "Stat",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Name of the ranking</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "stars",
+            "description": "<p>Number of stars for this rank</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "numberOf",
+            "description": "<p>Number of times this rank was called</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/stats.js",
+    "groupTitle": "Stat"
+  },
+  {
+    "type": "get",
+    "url": "/stats/:id",
+    "title": "Get one statistic/ranking by id",
+    "name": "retrieveOneStat",
+    "group": "Stat",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique identifier of the stat</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Name of the ranking</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "stars",
+            "description": "<p>Number of stars for this rank</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "numberOf",
+            "description": "<p>Number of times this rank was called</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/stats.js",
+    "groupTitle": "Stat"
+  },
+  {
+    "type": "patch",
+    "url": "/stats/:id",
+    "title": "Patch one statistic/ranking by id",
+    "name": "updateStat",
+    "group": "Stat",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique identifier of the stat</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Name of the ranking</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "stars",
+            "description": "<p>Number of stars for this rank</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "numberOf",
+            "description": "<p>Number of times this rank was called</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/stats.js",
+    "groupTitle": "Stat"
+  },
+  {
+    "type": "post",
+    "url": "/stories",
+    "title": "Create a new story",
+    "name": "createStory",
+    "group": "Story",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "DATA",
+            "optional": false,
+            "field": "story",
+            "description": "<p>One big story</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/stories.js",
+    "groupTitle": "Story"
+  },
+  {
+    "type": "delete",
+    "url": "/stories/:id",
+    "title": "Delete a story by id",
+    "name": "deleteOneStory",
+    "group": "Story",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique identifier of the story</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "DATA",
+            "optional": false,
+            "field": "story",
+            "description": "<p>One big story</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/stories.js",
+    "groupTitle": "Story"
+  },
+  {
+    "type": "get",
+    "url": "/stories",
+    "title": "Get all stories",
+    "name": "retrieveAllStories",
+    "group": "Story",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "DATA",
+            "optional": false,
+            "field": "story",
+            "description": "<p>One big story</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/stories.js",
+    "groupTitle": "Story"
+  },
+  {
+    "type": "get",
+    "url": "/stories/:id",
+    "title": "Get a story by id",
+    "name": "retrieveOneStory",
+    "group": "Story",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique identifier of the story</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "DATA",
+            "optional": false,
+            "field": "story",
+            "description": "<p>One big story</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/stories.js",
+    "groupTitle": "Story"
+  },
+  {
+    "type": "patch",
+    "url": "/stories/:id",
+    "title": "Patch a story by id",
+    "name": "updateStory",
+    "group": "Story",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique identifier of the story</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "DATA",
+            "optional": false,
+            "field": "story",
+            "description": "<p>One big story</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/stories.js",
+    "groupTitle": "Story"
+  },
+  {
+    "type": "post",
+    "url": "/users",
+    "title": "Create a new user",
+    "name": "createUser",
+    "group": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mail",
+            "description": "<p>Mail of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "age",
+            "description": "<p>Age of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "ENUM",
+            "optional": false,
+            "field": "sex",
+            "description": "<p>Sex of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "href",
+            "description": "<p>Link for the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>of the user</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/users",
+    "title": "Retrieve all users",
+    "name": "retrieveAllUsers",
+    "group": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mail",
+            "description": "<p>Mail of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "age",
+            "description": "<p>Age of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "ENUM",
+            "optional": false,
+            "field": "sex",
+            "description": "<p>Sex of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "href",
+            "description": "<p>Link for the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>of the user</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/users/:id",
+    "title": "Retrieve a user that fit with the id param",
+    "name": "retrieveOneUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": ":id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique identifier of the user</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mail",
+            "description": "<p>Mail of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "age",
+            "description": "<p>Age of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "ENUM",
+            "optional": false,
+            "field": "sex",
+            "description": "<p>Sex of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "href",
+            "description": "<p>Link for the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>of the user</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "patch",
+    "url": "/users/:id",
+    "title": "Patch a user that fit with the id param",
+    "name": "retrieveOneUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": ":id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique identifier of the user</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mail",
+            "description": "<p>Mail of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "age",
+            "description": "<p>Age of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "ENUM",
+            "optional": false,
+            "field": "sex",
+            "description": "<p>Sex of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "href",
+            "description": "<p>Link for the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>of the user</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "User"
+  }
+]

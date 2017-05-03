@@ -32,6 +32,7 @@ function getImageById(id, callback) {
  
 }
  
+
 router.addImage = function(image, callback) {
  Image.create(image, callback);
 }
@@ -50,10 +51,21 @@ var storage = multer.diskStorage({
 var upload = multer({
  storage: storage
 });
- 
+
+
 router.get('/', function(req, res, next) {
  res.render('index');
 });
+
+/**
+ * @api {post} /images Create a new entrie for an image and store the image on the server
+ * @apiName hexagon
+ * @apiGroup Image
+ *
+ * @apiSuccess {Number} id Id of the image on the db
+ * @apiSuccess {String} path Path where the image was stored
+ * @apiSuccess {String} originalname Original name's image
+ */ 
  
 router.post('/', upload.any(), function(req, res, next) {
  
