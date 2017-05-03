@@ -7,7 +7,6 @@ const glob = require('glob');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const users = require('./routes/users');
-const activities = require('./routes/activities');
 const images = require('./routes/imagefile');
 
 const config = require('./config');
@@ -65,7 +64,7 @@ app.get('/images', function(req, res) {
 // URL : http://localhost:3000/images/(give you collectionID)
 // To get the single image/File using id from the MongoDB
 app.get('/images/:id', function(req, res) {
- 
+
 //calling the function from index.js class using routes object..
   images.getImageById(req.params.id, function(err, genres) {
     if (err) {
