@@ -125,5 +125,5 @@ function filterStories(req) {
 function parseStory(req) {
   return _.pick(req.body, 'questions', 'titre', 'picture', 'reponseD', 'reponseG',
   'communication', 'marketing', 'business', 'programmation', 'multimedia', 'management',
-  'coutTemps', 'coutArgent','idCarte','estMultiple');
+  'coutTemps', 'coutArgent','idCarte','estMultiple','jumpTo');
 }
