@@ -13,7 +13,6 @@ var userSchema = new Schema({
     unique: true,
     //match: /^[a-z0-9]+$/i,
     //minlength: 3,
-    maxlength: 25,
     validate: {
       validator: validateMailAvailable,
       message: '{VALUE} is already taken'
