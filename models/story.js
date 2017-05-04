@@ -48,7 +48,7 @@ const storySchema = new Schema({
             "coutTemps": {
               type: Number
             },
-            "coutUrgent": {
+            "coutArgent": {
               type: Number
             }
           },
@@ -80,7 +80,7 @@ const storySchema = new Schema({
             "coutTemps": {
               type: Number
             },
-            "coutUrgent": {
+            "coutArgent": {
               type: Number
             }
           }
