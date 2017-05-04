@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var profilSchema = new Schema({
-  // changed name to mail
+
   business: {
     type: Number
   },
