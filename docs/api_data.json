@@ -739,6 +739,77 @@
     "groupTitle": "User"
   },
   {
+    "type": "patch",
+    "url": "/users/:id",
+    "title": "Patch a user that fit with the id param",
+    "name": "retrieveOneUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": ":id",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique identifier of the user</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "mail",
+            "description": "<p>Mail of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "age",
+            "description": "<p>Age of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "ENUM",
+            "optional": false,
+            "field": "sex",
+            "description": "<p>Sex of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "href",
+            "description": "<p>Link for the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>of the user</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "User"
+  },
+  {
     "type": "get",
     "url": "/users/:id",
     "title": "Retrieve a user that fit with the id param",
@@ -810,24 +881,11 @@
     "groupTitle": "User"
   },
   {
-    "type": "patch",
-    "url": "/users/:id",
-    "title": "Patch a user that fit with the id param",
-    "name": "retrieveOneUser",
-    "group": "User",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": ":id",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Unique identifier of the user</p>"
-          }
-        ]
-      }
-    },
+    "type": "post",
+    "url": "/auth",
+    "title": "Create a new identification token",
+    "name": "auth",
+    "group": "auth",
     "success": {
       "fields": {
         "Success 200": [
@@ -835,49 +893,21 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "mail",
-            "description": "<p>Mail of the user</p>"
+            "field": "token",
+            "description": "<p>Token for the user</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Object",
             "optional": false,
-            "field": "password",
-            "description": "<p>Password of the user</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "age",
-            "description": "<p>Age of the user</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "ENUM",
-            "optional": false,
-            "field": "sex",
-            "description": "<p>Sex of the user</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "href",
-            "description": "<p>Link for the user</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>of the user</p>"
+            "field": "user",
+            "description": "<p>User for this token</p>"
           }
         ]
       }
     },
     "version": "0.0.0",
-    "filename": "routes/users.js",
-    "groupTitle": "User"
+    "filename": "routes/auth.js",
+    "groupTitle": "auth"
   }
 ]
