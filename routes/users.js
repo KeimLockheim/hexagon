@@ -8,6 +8,8 @@ const router = express.Router();
 const User = require('../models/user');
 const utils = require('../services/utils');
 
+//var _ = require("underscore");
+
 // module.exports = router;
 
 module.exports = function(app) {
@@ -98,13 +100,17 @@ function createUser(req, res, next) {
   }).catch(next);
 }
 
+
 function retrieveAllUsers(req, res, next) {
   utils.paginate(filterUsers, '/users', req, res).then(users => res.json(users)).catch(next);
 }
 
+
+
 function retrieveOneUser(req, res, next) {
   res.json(req.user);
 }
+
 
 function updateUser(req, res, next) {
   _.extend(req.user, parseUser(req));
@@ -113,10 +119,10 @@ function updateUser(req, res, next) {
   }).catch(next);
 }
 
+
 function filterUsers(req) {
   let query = User.find();
-
-  query = utils.sort(query, req, 'mail', [ 'mail' ]);
+  query = utils.sort(query, req, 'mail', [ 'mail']);
 
   return {
     filtered: query

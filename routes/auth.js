@@ -12,6 +12,16 @@ module.exports = function(app) {
   app.use('/auth', router);
 };
 
+
+
+/**
+ * @api {post} /auth Create a new identification token
+ * @apiName auth
+ * @apiGroup auth
+ *
+ * @apiSuccess {String} token Token for the user
+ * @apiSuccess {Object} user User for this token
+ */
 router.post('/', utils.requireJson, function(req, res, next) {
   if (!_.isString(req.body.mail) || !_.isString(req.body.password) || _.isEmpty(req.body.mail.trim()) || _.isEmpty(req.body.password.trim())) {
     return res.sendStatus(401);
